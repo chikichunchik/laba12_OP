@@ -26,18 +26,25 @@ public class Tasks {
     }
 
     public static Movie maxActorsMovie (DataBase dataBase){
-    	int maxActors=0;
-    	Movie largeMovie = new Movie("");
-    	
-    	for(Iterator<Movie> i=dataBase.movies.iterator();i.hasNext();) {
-    		Movie movie = i.next();
-    		if (movie.actors.size()>maxActors) {
-    			maxActors=movie.actors.size();
-    			largeMovie=movie;
-    		}
-    	}
-    	return largeMovie;
+		try {
+			if (dataBase == null) {
+				throw new IllegalArgumentException("DataBase must not be null");
+			}
+			int maxActors = 0;
+			Movie largeMovie = new Movie("");
 
+			for (Iterator<Movie> i = dataBase.movies.iterator(); i.hasNext(); ) {
+				Movie movie = i.next();
+				if (movie.actors.size() > maxActors) {
+					maxActors = movie.actors.size();
+					largeMovie = movie;
+				}
+			}
+			return largeMovie;
+		} catch (IllegalArgumentException error){
+			System.out.println("EXCEPTION! " + error.getMessage());
+			return null;
+		}
     }
 }
 
