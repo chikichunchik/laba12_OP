@@ -6,6 +6,12 @@ public class Movie {
     String title;
     HashSet<Actor> actors;
 
+    public Movie(String title, DataBase dataBase){
+        this.title = title;
+        this.actors = new HashSet<>();
+        dataBase.addMovie(this);
+    }
+
     public Movie(String title){
         this.title = title;
         this.actors = new HashSet<>();
@@ -38,4 +44,10 @@ public class Movie {
     public int hashCode() {
         return Objects.hash(title);
     }
+
+    @Override
+    public String toString(){
+        return this.getTitle();
+    }
+
 }
