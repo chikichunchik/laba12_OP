@@ -8,8 +8,9 @@ public class Tasks {
     }
 
     public static HashMap<Integer, Actor> moviePartners (Actor actor){
-		try {
-			if (actor == null) { throw new IllegalArgumentException("Actor must not be null"); }
+			if (actor == null) { 
+				throw new IllegalArgumentException("Actor must not be null"); 
+			}
 			HashMap<Integer, Actor> partners = new HashMap<>();
 			for (Movie actorsMovie : actor.getMovies()) {
 				for (Actor partner : actorsMovie.getActors()) {
@@ -19,14 +20,9 @@ public class Tasks {
 				}
 			}
 			return partners;
-		} catch (IllegalArgumentException error){
-			System.out.println("EXCEPTION! " + error.getMessage());
-			return null;
-		}
     }
 
     public static Movie maxActorsMovie (DataBase dataBase){
-		try {
 			if (dataBase == null) {
 				throw new IllegalArgumentException("DataBase must not be null");
 			}
@@ -35,16 +31,12 @@ public class Tasks {
 
 			for (Iterator<Movie> i = dataBase.movies.iterator(); i.hasNext(); ) {
 				Movie movie = i.next();
-				if (movie.actors.size() > maxActors) {
-					maxActors = movie.actors.size();
+				if (movie.getActors().size() > maxActors) {
+					maxActors = movie.getActors().size();
 					largeMovie = movie;
 				}
 			}
 			return largeMovie;
-		} catch (IllegalArgumentException error){
-			System.out.println("EXCEPTION! " + error.getMessage());
-			return null;
-		}
-    }
+	}
 }
 

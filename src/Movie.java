@@ -3,8 +3,8 @@ import java.util.Objects;
 
 public class Movie {
 
-    String title;
-    HashSet<Actor> actors;
+    private String title;
+    private HashSet<Actor> actors;
 
     public Movie(String title, DataBase dataBase){
         this.title = title;
