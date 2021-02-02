@@ -12,9 +12,7 @@ public class Tasks {
     }
 
     public static Movie maxActorsMovie (DataBase dataBase){
-        return   null   
-
-;
+        return   null;
     }
 
 }
