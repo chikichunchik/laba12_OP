@@ -1,9 +1,11 @@
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.HashMap;
-import java.util.TreeMap;
-
 public class Tasks {
 
-    public static boolean isActorWithoutMovie (DataBase dataBase){
+	public static void main(String[] args) {
+	}
+	public static boolean isActorWithoutMovie (DataBase dataBase){
         return  true;
     }
 
@@ -12,7 +14,18 @@ public class Tasks {
     }
 
     public static Movie maxActorsMovie (DataBase dataBase){
-        return   null;
-    }
+    	int maxActors=0;
+    	Movie largeMovie = new Movie("");
+    	
+    	for(Iterator<Movie> i=dataBase.movies.iterator();i.hasNext();) {
+    		Movie movie = i.next();
+    		if (movie.actors.size()>maxActors) {
+    			maxActors=movie.actors.size();
+    			largeMovie=movie;
+    		}
+    	}
+    	return largeMovie;
 
+    }
 }
+
