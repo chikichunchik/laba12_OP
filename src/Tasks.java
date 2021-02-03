@@ -29,7 +29,7 @@ public class Tasks {
 			int maxActors = 0;
 			Movie largeMovie = new Movie("");
 
-			for (Iterator<Movie> i = dataBase.movies.iterator(); i.hasNext(); ) {
+			for (Iterator<Movie> i = dataBase.getMovies().iterator(); i.hasNext(); ) {
 				Movie movie = i.next();
 				if (movie.getActors().size() > maxActors) {
 					maxActors = movie.getActors().size();
