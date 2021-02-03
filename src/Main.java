@@ -12,18 +12,17 @@ public class Main {
         Movie madmax = new Movie("MadMax", dataBase);
 
         predator.addActor(john);
+        predator.addActor(bella);
         madmax.addActor(bella);
         madmax.addActor(igor);
         try {
-        	Movie movie = Tasks.maxActorsMovie(dataBase);
-        	System.out.println(movie);
+        	System.out.println(Tasks.maxActorsMovie(dataBase));
         }
         catch (IllegalArgumentException e) {
         	System.out.println("EXEPTION"+e.getMessage());
 		}
         try {
-        	HashMap<Integer, Actor> partners =Tasks.moviePartners(john);
-        	System.out.println(partners);
+        	System.out.println(Tasks.moviePartners(john));
         }
         catch (IllegalArgumentException e) {
         	System.out.println("EXEPTION"+e.getMessage());
