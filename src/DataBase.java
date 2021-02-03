@@ -3,8 +3,8 @@ import java.util.Objects;
 
 public class DataBase {
 
-    HashSet<Movie> movies = new HashSet<>();
-    HashSet<Actor> actors = new HashSet<>();
+    private HashSet<Movie> movies = new HashSet<>();
+    private HashSet<Actor> actors = new HashSet<>();
 
     public DataBase() {
         this.actors = new HashSet<>();
@@ -19,5 +19,11 @@ public class DataBase {
         actors.add(actor);
     }
 
+    public HashSet<Movie> getMovies() {
+        return movies;
+    }
 
+    public HashSet<Actor> getActors() {
+        return actors;
+    }
 }
