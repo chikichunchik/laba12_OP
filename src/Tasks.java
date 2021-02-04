@@ -4,8 +4,25 @@ import java.util.HashMap;
 public class Tasks {
 
 	public static boolean isActorWithoutMovie (DataBase dataBase){
-        return  true;
-    }
+		Iterator<Actor> actorIterator = dataBase.getActors().iterator();
+		while (actorIterator.hasNext()){
+			if (actorIterator.next().getMovies().isEmpty()) return true;
+		}
+		return  false;
+	}
+
+	public static HashSet<Actor> getActorsWithoutMovie (DataBase dataBase){
+		HashSet <Actor> unemployed = new HashSet<>();
+
+		Iterator<Actor> actorIterator = dataBase.getActors().iterator();
+		while (actorIterator.hasNext()){
+			Actor actor = actorIterator.next();
+			if (actor.getMovies().isEmpty()){
+				unemployed.add(actor);
+			}
+		}
+		return unemployed;
+	}
 
     public static HashMap<Integer, Actor> moviePartners (Actor actor){
 			if (actor == null) { 

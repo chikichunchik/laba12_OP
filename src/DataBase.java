@@ -3,6 +3,7 @@ import java.util.Objects;
 
 public class DataBase {
 
+    // инициализатор избыточный(?)
     private HashSet<Movie> movies = new HashSet<>();
     private HashSet<Actor> actors = new HashSet<>();
 
