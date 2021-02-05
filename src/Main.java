@@ -4,23 +4,26 @@ public class Main {
 
     public static void main (String[] args){
         DataBase dataBase = new DataBase();
-        Actor john = new Actor("John", dataBase);
-        Actor bella = new Actor("Bella", dataBase);
-        Actor igor = new Actor("Igor", dataBase);
-        Actor mary = new Actor("Mary", dataBase);
-        Actor kate = new Actor("Kate", dataBase);
+        Actor john = new Actor("John");
+        Actor bella = new Actor("Bella");
+        Actor igor = new Actor("Igor");
+        Actor mary = new Actor("Mary");
+        Actor kate = new Actor("Kate");
 
-        Movie predator = new Movie("Predator" , dataBase);
-        Movie madmax = new Movie("MadMax", dataBase);
+        dataBase.addActor(john);
+        dataBase.addActor(bella);
+        dataBase.addActor(igor);
+        dataBase.addActor(mary);
+        dataBase.addActor(kate);
+
+        Movie predator = new Movie("Predator");
+        Movie madmax = new Movie("MadMax");
+
+        dataBase.addMovie(predator);
+        dataBase.addMovie(madmax);
 
         predator.addActor(john);
         predator.addActor(bella);
-
-        john.addMovie(predator);
-        bella.addMovie(predator);
-
-        madmax.addActor(bella);
-        madmax.addActor(igor);
 
         bella.addMovie(madmax);
         igor.addMovie(madmax);
@@ -38,7 +41,7 @@ public class Main {
         System.out.println("*** Завдання 2 ***");
 
         try {
-        	System.out.println(Tasks.maxActorsMovie(dataBase));
+        	System.out.println("Актори, що грали з заданим актором в одному фільмі: \n" + Tasks.moviePartners(john));
         }
         catch (IllegalArgumentException e) {
         	System.out.println("EXEPTION"+e.getMessage());
@@ -46,7 +49,7 @@ public class Main {
 
         System.out.println("*** Завдання 3 ***");
         try {
-        	System.out.println(Tasks.moviePartners(john));
+        	System.out.println("Фільм з найбільшою кількістю акторів: \n" + Tasks.maxActorsMovie(dataBase));
         }
         catch (IllegalArgumentException e) {
         	System.out.println("EXEPTION"+e.getMessage());
