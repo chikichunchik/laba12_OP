@@ -6,25 +6,16 @@ public class Actor {
     private String name;
     private HashSet<Movie> movies;
 
-    // передача БД в конструктор - получаем связи: БД зависит от актера, актер зависит от БД
-    // - не противоречит SOLID - ?
-
-    // конструктор должен инициализировать свои поля - ?
-    // а тут мы добавляем актера в другой объект
-    // а если создать еще одну БД - ?
-    // не  лучше и прозрачнее это делать в main - ?
-    public Actor (String name, DataBase dataBase){
-        this.name = name;
-        this.movies = new HashSet<>();
-        dataBase.addActor(this);
-    }
-
     public Actor (String name){
         this.name = name;
         this.movies = new HashSet<>();
     }
 
     public void addMovie (Movie movie){
+        if(this.getMovies().contains(movie)){
+            System.out.println("This movie is already in this actor");
+            return;
+        }
         movies.add(movie);
         if(!movie.getActors().contains(this)){
             movie.addActor(this);

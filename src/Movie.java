@@ -6,18 +6,16 @@ public class Movie {
     private String title;
     private HashSet<Actor> actors;
 
-    public Movie(String title, DataBase dataBase){
-        this.title = title;
-        this.actors = new HashSet<>();
-        dataBase.addMovie(this);
-    }
-
     public Movie(String title){
         this.title = title;
         this.actors = new HashSet<>();
     }
 
     public void addActor(Actor actor) {
+        if(this.getActors().contains(actor)){
+            System.out.println("This movie already contains this actor");
+            return;
+        }
         actors.add(actor);
         if(!actor.getMovies().contains(this)){
             actor.addMovie(this);
