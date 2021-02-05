@@ -4,6 +4,9 @@ import java.util.HashMap;
 public class Tasks {
 
 	public static boolean isActorWithoutMovie (DataBase dataBase){
+		if(dataBase == null) {
+			throw new IllegalArgumentException("DataBase must not be null");
+		}
 		Iterator<Actor> actorIterator = dataBase.getActors().iterator();
 		while (actorIterator.hasNext()){
 			if (actorIterator.next().getMovies().isEmpty()) return true;
@@ -12,6 +15,9 @@ public class Tasks {
 	}
 
 	public static HashSet<Actor> getActorsWithoutMovie (DataBase dataBase){
+		if(dataBase == null) {
+			throw new IllegalArgumentException("DataBase must not be null");
+		}
 		HashSet <Actor> unemployed = new HashSet<>();
 
 		Iterator<Actor> actorIterator = dataBase.getActors().iterator();
