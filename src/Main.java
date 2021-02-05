@@ -1,5 +1,5 @@
 import java.util.HashMap;
-
+import java.util.ArrayList;
 public class Main {
 
     public static void main (String[] args){
@@ -15,6 +15,7 @@ public class Main {
         dataBase.addActor(igor);
         dataBase.addActor(mary);
         dataBase.addActor(kate);
+        
 
         Movie predator = new Movie("Predator");
         Movie madmax = new Movie("MadMax");
@@ -24,32 +25,36 @@ public class Main {
 
         predator.addActor(john);
         predator.addActor(bella);
-
+        
         bella.addMovie(madmax);
         igor.addMovie(madmax);
 
-        System.out.println("*** Р—Р°РІРґР°РЅРЅСЏ 1 ***");
+        System.out.println("*** Завдання 1 ***");
 
         if (Tasks.isActorWithoutMovie(dataBase)) {
-            System.out.println("Р„ РїСЂРёРЅР°Р№РјРЅС– 1 Р°РєС‚РѕСЂ, С‰Рѕ РЅРµ Р·РЅС–РјР°РІСЃСЏ Сѓ Р¶РѕРґРЅРѕРјСѓ С„С–Р»СЊРјС–:");
+            System.out.println("Є принаймні 1 актор, що не знімався у жодному фільмі:");
             for (Actor actor: Tasks.getActorsWithoutMovie(dataBase)) {
                 System.out.println(actor.getName());
             }
         } else {
-            System.out.println("РђРєС‚РѕСЂС–РІ, СЏРєС– Р± РЅРµ Р·С–РіСЂР°Р»Рё Сѓ Р¶РѕРґРЅРѕРјСѓ С„С–Р»СЊРјС–, РЅРµРјР°С”");
+            System.out.println("Акторів, які б не зіграли у жодному фільмі, немає”");
         }
-        System.out.println("*** Р—Р°РІРґР°РЅРЅСЏ 2 ***");
+        System.out.println("*** Завдання 2 ***");
 
         try {
-        	System.out.println("РђРєС‚РѕСЂРё, С‰Рѕ РіСЂР°Р»Рё Р· Р·Р°РґР°РЅРёРј Р°РєС‚РѕСЂРѕРј РІ РѕРґРЅРѕРјСѓ С„С–Р»СЊРјС–: \n" + Tasks.moviePartners(john));
+        	System.out.println("Актори, що грали з заданим актором в одному фільмі: \n" + Tasks.moviePartners(john));
         }
         catch (IllegalArgumentException e) {
         	System.out.println("EXEPTION"+e.getMessage());
 		}
 
-        System.out.println("*** Р—Р°РІРґР°РЅРЅСЏ 3 ***");
+        System.out.println("*** Завдання 3 ***");
         try {
-        	System.out.println("Р¤С–Р»СЊРј Р· РЅР°Р№Р±С–Р»СЊС€РѕСЋ РєС–Р»СЊРєС–СЃС‚СЋ Р°РєС‚РѕСЂС–РІ: \n" + Tasks.maxActorsMovie(dataBase));
+        	System.out.println("Фільм з найбільшою кількістю акторів: ");
+        	ArrayList<Movie> movies = Tasks.maxActorsMovie(dataBase);
+        	for(Movie movie: movies) {
+        		System.out.println(movie);
+        	}
         }
         catch (IllegalArgumentException e) {
         	System.out.println("EXEPTION"+e.getMessage());
