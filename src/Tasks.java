@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.HashMap;
 public class Tasks {
@@ -46,8 +45,8 @@ public class Tasks {
 			return partners;
     }
 
-    public static ArrayList<Movie> maxActorsMovie(DataBase dataBase){
-    		ArrayList<Movie> movies = new ArrayList<>();
+    public static HashSet<Movie> maxActorsMovie(DataBase dataBase){
+    		HashSet<Movie> movies = new HashSet<>();
 			if (dataBase == null) {
 				throw new IllegalArgumentException("DataBase must not be null");
 			}
@@ -55,7 +54,6 @@ public class Tasks {
 
 			for (Iterator<Movie> i = dataBase.getMovies().iterator(); i.hasNext(); ) {
 				Movie movie = i.next();
-				System.out.print(movie.getActors().size());
 				if (movie.getActors().size() > maxActors) {
 					maxActors = movie.getActors().size();
 					movies.clear();

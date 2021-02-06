@@ -1,5 +1,6 @@
 import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.HashSet;
+
 public class Main {
 
     public static void main (String[] args){
@@ -51,7 +52,7 @@ public class Main {
         System.out.println("*** Завдання 3 ***");
         try {
         	System.out.println("Фільм з найбільшою кількістю акторів: ");
-        	ArrayList<Movie> movies = Tasks.maxActorsMovie(dataBase);
+        	HashSet<Movie> movies = Tasks.maxActorsMovie(dataBase);
         	for(Movie movie: movies) {
         		System.out.println(movie);
         	}
