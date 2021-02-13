@@ -1,5 +1,9 @@
+package lab13;
 import java.util.HashSet;
 import java.util.Iterator;
+
+import Exeptions.NullDatabaseExeption;
+
 import java.util.HashMap;
 public class Tasks {
 
@@ -45,10 +49,10 @@ public class Tasks {
 			return partners;
     }
 
-    public static HashSet<Movie> maxActorsMovie(DataBase dataBase){
+    public static HashSet<Movie> maxActorsMovie(DataBase dataBase) throws NullDatabaseExeption{
     		HashSet<Movie> movies = new HashSet<>();
 			if (dataBase == null) {
-				throw new IllegalArgumentException("DataBase must not be null");
+				throw new NullDatabaseExeption("DataBase must not be null");
 			}
 			int maxActors = 0;
 

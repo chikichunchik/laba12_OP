@@ -1,9 +1,12 @@
+package lab13;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import Exeptions.NullDatabaseExeption;
+
 public class Main {
 
-    public static void main (String[] args){
+    public static void main (String[] args) throws NullDatabaseExeption{
         DataBase dataBase = new DataBase();
         Actor john = new Actor("John");
         Actor bella = new Actor("Bella");
@@ -52,13 +55,15 @@ public class Main {
         System.out.println("*** Завдання 3 ***");
         try {
         	System.out.println("Фільм з найбільшою кількістю акторів: ");
-        	HashSet<Movie> movies = Tasks.maxActorsMovie(dataBase);
+        	HashSet<Movie> movies = Tasks.maxActorsMovie(null);
         	for(Movie movie: movies) {
         		System.out.println(movie);
         	}
         }
-        catch (IllegalArgumentException e) {
-        	System.out.println("EXEPTION"+e.getMessage());
+        catch (NullDatabaseExeption e) {
+        	System.out.println("EXEPTION: "+e.getMessage());
+		} finally {
+			System.out.println("Task 3 is over");
 		}
 
     }
