@@ -33,10 +33,9 @@ public class Main {
 
         predator.addActor(john);
         predator.addActor(bella);
-        
+         
         bella.addMovie(madmax);
         igor.addMovie(madmax);
-
 
         System.out.println("*** Завдання 1 ***");
 
