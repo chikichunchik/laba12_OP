@@ -2,17 +2,21 @@ package lab13;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import Exeptions.IllegalSymbolsExeption;
 import Exeptions.NullDatabaseExeption;
 
 public class Main {
 
-    public static void main (String[] args) throws NullDatabaseExeption{
+    public static void main (String[] args) throws NullDatabaseExeption  {
         DataBase dataBase = new DataBase();
-        Actor john = new Actor("John");
-        Actor bella = new Actor("Bella");
-        Actor igor = new Actor("Igor");
-        Actor mary = new Actor("Mary");
-        Actor kate = new Actor("Kate");
+        Actor john = Tasks.createActor("John");
+        Actor bella = Tasks.createActor("Bella");
+        Actor igor = Tasks.createActor("Igor");
+        Actor mary = Tasks.createActor("Mary");
+        Actor kate = Tasks.createActor("Kate");
+        Actor mate = Tasks.createActor("Mate11");
+        Actor ew = Tasks.createActor("e");
+        Actor eq = Tasks.createActor("esadfsadcfksajdfsaicfuiosdfiodsfklsdjfjsdfjsdjfsdjfksdjfksjdfkljsdkfljsdkljfklsdjfkjf");
 
         dataBase.addActor(john);
         dataBase.addActor(bella);
@@ -32,6 +36,7 @@ public class Main {
         
         bella.addMovie(madmax);
         igor.addMovie(madmax);
+
 
         System.out.println("*** Завдання 1 ***");
 
