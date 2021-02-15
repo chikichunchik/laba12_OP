@@ -2,16 +2,16 @@ package lab13;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import Exeptions.IllegalSymbolsExeption;
-import Exeptions.NullActorExeption;
-import Exeptions.NullDatabaseExeption;
+import Exeptions.IllegalSymbolsExсeption;
+import Exeptions.NullActorExсeption;
+import Exeptions.NullDatabaseExсeption;
 
 import java.util.HashMap;
 public class Tasks {
 
-	public static boolean isActorWithoutMovie(DataBase dataBase) throws NullDatabaseExeption {
+	public static boolean isActorWithoutMovie(DataBase dataBase) throws NullDatabaseExсeption {
 		if (dataBase == null) {
-			throw new NullDatabaseExeption("DataBase must not be null");
+			throw new NullDatabaseExсeption("DataBase must not be null");
 		}
 		Iterator<Actor> actorIterator = dataBase.getActors().iterator();
 		while (actorIterator.hasNext()) {
@@ -20,9 +20,9 @@ public class Tasks {
 		return false;
 	}
 
-	public static HashSet<Actor> getActorsWithoutMovie(DataBase dataBase) throws NullDatabaseExeption {
+	public static HashSet<Actor> getActorsWithoutMovie(DataBase dataBase) throws NullDatabaseExсeption {
 		if (dataBase == null) {
-			throw new NullDatabaseExeption("DataBase must not be null");
+			throw new NullDatabaseExсeption("DataBase must not be null");
 		}
 		HashSet<Actor> unemployed = new HashSet<>();
 
@@ -36,9 +36,9 @@ public class Tasks {
 		return unemployed;
 	}
 
-	public static HashMap<Integer, Actor> moviePartners(Actor actor) throws NullActorExeption {
+	public static HashMap<Integer, Actor> moviePartners(Actor actor) throws NullActorExсeption {
 		if (actor == null) {
-			throw new NullActorExeption("Actor must not be null");
+			throw new NullActorExсeption("Actor must not be null");
 		}
 		HashMap<Integer, Actor> partners = new HashMap<>();
 		for (Movie actorsMovie : actor.getMovies()) {
@@ -51,10 +51,10 @@ public class Tasks {
 		return partners;
 	}
 
-	public static HashSet<Movie> maxActorsMovie(DataBase dataBase) throws NullDatabaseExeption {
+	public static HashSet<Movie> maxActorsMovie(DataBase dataBase) throws NullDatabaseExсeption {
 		HashSet<Movie> movies = new HashSet<>();
 		if (dataBase == null) {
-			throw new NullDatabaseExeption("DataBase must not be null");
+			throw new NullDatabaseExсeption("DataBase must not be null");
 		}
 		int maxActors = 0;
 

@@ -2,12 +2,13 @@ package lab13;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import Exeptions.IllegalSymbolsExeption;
-import Exeptions.NullDatabaseExeption;
+import Exeptions.IllegalSymbolsExсeption;
+import Exeptions.NullActorExсeption;
+import Exeptions.NullDatabaseExсeption;
 
 public class Main {
 
-    public static void main (String[] args) throws NullDatabaseExeption, IllegalSymbolsExeption {
+    public static void main (String[] args) throws NullDatabaseExсeption, IllegalSymbolsExсeption {
         DataBase dataBase = new DataBase();
         Actor john = new Actor("John");
         Actor bella = new Actor("Bella");
@@ -52,7 +53,7 @@ public class Main {
         try {
         	System.out.println("������, �� ����� � ������� ������� � ������ �����: \n" + Tasks.moviePartners(john));
         }
-        catch (IllegalArgumentException e) {
+        catch (IllegalArgumentException | NullActorExсeption e) {
         	System.out.println("EXEPTION"+e.getMessage());
 		}
 
@@ -64,7 +65,7 @@ public class Main {
         		System.out.println(movie);
         	}
         }
-        catch (NullDatabaseExeption e) {
+        catch (NullDatabaseExсeption e) {
         	System.out.println("EXEPTION: "+e.getMessage());
 		} finally {
 			System.out.println("Task 3 is over");
