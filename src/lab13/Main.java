@@ -1,4 +1,4 @@
-package lab13;
+﻿package lab13;
 import java.util.HashSet;
 
 import Exсeptions.IllegalSymbolsExсeption;
@@ -65,7 +65,7 @@ public class Main {
         	}
         }
         catch (NullDatabaseExсeption e) {
-        	System.out.println("EXEPTION: "+e.getMessage());
+        	System.out.println("EXCEPTION: "+e.getMessage());
 		} finally {
 			System.out.println("Task 3 is over");
 		}
