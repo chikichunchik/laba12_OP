@@ -3,14 +3,15 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 import Exeptions.IllegalSymbolsExeption;
+import Exeptions.NullActorExeption;
 import Exeptions.NullDatabaseExeption;
 
 import java.util.HashMap;
 public class Tasks {
 
-	public static boolean isActorWithoutMovie(DataBase dataBase) {
+	public static boolean isActorWithoutMovie(DataBase dataBase) throws NullDatabaseExeption {
 		if (dataBase == null) {
-			throw new IllegalArgumentException("lab13.DataBase must not be null");
+			throw new NullDatabaseExeption("DataBase must not be null");
 		}
 		Iterator<Actor> actorIterator = dataBase.getActors().iterator();
 		while (actorIterator.hasNext()) {
@@ -19,9 +20,9 @@ public class Tasks {
 		return false;
 	}
 
-	public static HashSet<Actor> getActorsWithoutMovie(DataBase dataBase) {
+	public static HashSet<Actor> getActorsWithoutMovie(DataBase dataBase) throws NullDatabaseExeption {
 		if (dataBase == null) {
-			throw new IllegalArgumentException("lab13.DataBase must not be null");
+			throw new NullDatabaseExeption("DataBase must not be null");
 		}
 		HashSet<Actor> unemployed = new HashSet<>();
 
@@ -35,9 +36,9 @@ public class Tasks {
 		return unemployed;
 	}
 
-	public static HashMap<Integer, Actor> moviePartners(Actor actor) {
+	public static HashMap<Integer, Actor> moviePartners(Actor actor) throws NullActorExeption {
 		if (actor == null) {
-			throw new IllegalArgumentException("lab13.Actor must not be null");
+			throw new NullActorExeption("Actor must not be null");
 		}
 		HashMap<Integer, Actor> partners = new HashMap<>();
 		for (Movie actorsMovie : actor.getMovies()) {
@@ -53,7 +54,7 @@ public class Tasks {
 	public static HashSet<Movie> maxActorsMovie(DataBase dataBase) throws NullDatabaseExeption {
 		HashSet<Movie> movies = new HashSet<>();
 		if (dataBase == null) {
-			throw new NullDatabaseExeption("lab13.DataBase must not be null");
+			throw new NullDatabaseExeption("DataBase must not be null");
 		}
 		int maxActors = 0;
 
