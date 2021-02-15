@@ -1,6 +1,6 @@
 package lab13;
 
-import org.jetbrains.annotations.NotNull;
+import Exeptions.IllegalSymbolsEx—Åeption;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -10,16 +10,16 @@ public class Actor {
     private String name;
     private HashSet<Movie> movies;
 
-    public Actor () {
+    public Actor (String name) throws IllegalSymbolsEx—Åeption {
         this.movies = new HashSet<>();
-        this.name = "NoName";
+        this.setName(name);
     }
 
-    public void setName(String name) throws Exeptions.IllegalSymbolsExeption{
+    private void setName(String name) throws Exeptions.IllegalSymbolsEx—Åeption{
         String lowerInput = name.toLowerCase();
-        if (!lowerInput.matches("[a-z]{2,40}"))   // ÒËÏ‚ÓÎË a-z ‚≥‰ 2 ‰Ó 40
+        if (!lowerInput.matches("[a-z]{2,40}"))   // ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ a-z ÔøΩÔøΩ 2 ÔøΩÔøΩ 40
         {
-            throw new Exeptions.IllegalSymbolsExeption("Name " + name + " contains illegal symbols");
+            throw new Exeptions.IllegalSymbolsEx—Åeption("Name " + name + " contains illegal symbols");
         }
         this.name = name;
     }

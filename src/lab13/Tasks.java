@@ -2,83 +2,73 @@ package lab13;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import Exeptions.IllegalSymbolsExeption;
-import Exeptions.NullDatabaseExeption;
+import Exeptions.IllegalSymbolsExсeption;
+import Exeptions.NullActorExсeption;
+import Exeptions.NullDatabaseExсeption;
 
 import java.util.HashMap;
 public class Tasks {
 
-	public static boolean isActorWithoutMovie (DataBase dataBase){
-		if(dataBase == null) {
-			throw new IllegalArgumentException("lab13.DataBase must not be null");
+	public static boolean isActorWithoutMovie(DataBase dataBase) throws NullDatabaseExсeption {
+		if (dataBase == null) {
+			throw new NullDatabaseExсeption("DataBase must not be null");
 		}
 		Iterator<Actor> actorIterator = dataBase.getActors().iterator();
-		while (actorIterator.hasNext()){
+		while (actorIterator.hasNext()) {
 			if (actorIterator.next().getMovies().isEmpty()) return true;
 		}
-		return  false;
+		return false;
 	}
 
-	public static HashSet<Actor> getActorsWithoutMovie (DataBase dataBase){
-		if(dataBase == null) {
-			throw new IllegalArgumentException("lab13.DataBase must not be null");
+	public static HashSet<Actor> getActorsWithoutMovie(DataBase dataBase) throws NullDatabaseExсeption {
+		if (dataBase == null) {
+			throw new NullDatabaseExсeption("DataBase must not be null");
 		}
-		HashSet <Actor> unemployed = new HashSet<>();
+		HashSet<Actor> unemployed = new HashSet<>();
 
 		Iterator<Actor> actorIterator = dataBase.getActors().iterator();
-		while (actorIterator.hasNext()){
+		while (actorIterator.hasNext()) {
 			Actor actor = actorIterator.next();
-			if (actor.getMovies().isEmpty()){
+			if (actor.getMovies().isEmpty()) {
 				unemployed.add(actor);
 			}
 		}
 		return unemployed;
 	}
 
-    public static HashMap<Integer, Actor> moviePartners (Actor actor){
-			if (actor == null) { 
-				throw new IllegalArgumentException("lab13.Actor must not be null");
-			}
-			HashMap<Integer, Actor> partners = new HashMap<>();
-			for (Movie actorsMovie : actor.getMovies()) {
-				for (Actor partner : actorsMovie.getActors()) {
-					if (!partner.equals(actor)) {
-						partners.put(partner.hashCode(), partner);
-					}
+	public static HashMap<Integer, Actor> moviePartners(Actor actor) throws NullActorExсeption {
+		if (actor == null) {
+			throw new NullActorExсeption("Actor must not be null");
+		}
+		HashMap<Integer, Actor> partners = new HashMap<>();
+		for (Movie actorsMovie : actor.getMovies()) {
+			for (Actor partner : actorsMovie.getActors()) {
+				if (!partner.equals(actor)) {
+					partners.put(partner.hashCode(), partner);
 				}
 			}
-			return partners;
-    }
-
-    public static HashSet<Movie> maxActorsMovie(DataBase dataBase) throws NullDatabaseExeption{
-    		HashSet<Movie> movies = new HashSet<>();
-			if (dataBase == null) {
-				throw new NullDatabaseExeption("lab13.DataBase must not be null");
-			}
-			int maxActors = 0;
-
-			for (Iterator<Movie> i = dataBase.getMovies().iterator(); i.hasNext(); ) {
-				Movie movie = i.next();
-				if (movie.getActors().size() > maxActors) {
-					maxActors = movie.getActors().size();
-					movies.clear();
-				}
-				if(movie.getActors().size() == maxActors){
-					movies.add(movie);
-				}
-			}
-			return movies;
+		}
+		return partners;
 	}
 
-	public static Actor createActor(String name) {
-		Actor actor = new Actor();
-		try {
-			actor.setName(name);
-		} catch (IllegalSymbolsExeption ie) {
-			System.out.println(ie.getMessage());
-			System.out.println("Actor's name must contain from 2 to 40 english symbols a-z");
+	public static HashSet<Movie> maxActorsMovie(DataBase dataBase) throws NullDatabaseExсeption {
+		HashSet<Movie> movies = new HashSet<>();
+		if (dataBase == null) {
+			throw new NullDatabaseExсeption("DataBase must not be null");
 		}
-		return actor;
+		int maxActors = 0;
+
+		for (Iterator<Movie> i = dataBase.getMovies().iterator(); i.hasNext(); ) {
+			Movie movie = i.next();
+			if (movie.getActors().size() > maxActors) {
+				maxActors = movie.getActors().size();
+				movies.clear();
+			}
+			if (movie.getActors().size() == maxActors) {
+				movies.add(movie);
+			}
+		}
+		return movies;
 	}
 }
 
