@@ -2,9 +2,8 @@ package lab13;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import Exeptions.IllegalSymbolsExсeption;
-import Exeptions.NullActorExсeption;
-import Exeptions.NullDatabaseExсeption;
+import Exсeptions.NullActorExсeption;
+import Exсeptions.NullDatabaseExсeption;
 
 import java.util.HashMap;
 public class Tasks {

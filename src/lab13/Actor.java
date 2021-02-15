@@ -1,6 +1,6 @@
 package lab13;
 
-import Exeptions.IllegalSymbolsExсeption;
+import Exсeptions.IllegalSymbolsExсeption;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -15,11 +15,11 @@ public class Actor {
         this.setName(name);
     }
 
-    private void setName(String name) throws Exeptions.IllegalSymbolsExсeption{
+    private void setName(String name) throws Exсeptions.IllegalSymbolsExсeption{
         String lowerInput = name.toLowerCase();
         if (!lowerInput.matches("[a-z]{2,40}"))   // ������� a-z �� 2 �� 40
         {
-            throw new Exeptions.IllegalSymbolsExсeption("Name " + name + " contains illegal symbols");
+            throw new Exсeptions.IllegalSymbolsExсeption("Name " + name + " contains illegal symbols");
         }
         this.name = name;
     }
