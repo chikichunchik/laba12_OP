@@ -1,4 +1,4 @@
-package Exeptions;
+package Exсeptions;
 
 public class NullDatabaseExсeption extends Exception{
 
