@@ -2,15 +2,15 @@ package lab13;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import Exсeptions.NullActorExсeption;
-import Exсeptions.NullDatabaseExсeption;
+import Exceptions.NullActorException;
+import Exceptions.NullDatabaseException;
 
 import java.util.HashMap;
 public class Tasks {
 
-	public static boolean isActorWithoutMovie(DataBase dataBase) throws NullDatabaseExсeption {
+	public static boolean isActorWithoutMovie(DataBase dataBase) throws NullDatabaseException {
 		if (dataBase == null) {
-			throw new NullDatabaseExсeption("DataBase must not be null");
+			throw new NullDatabaseException("DataBase must not be null");
 		}
 		Iterator<Actor> actorIterator = dataBase.getActors().iterator();
 		while (actorIterator.hasNext()) {
@@ -19,9 +19,9 @@ public class Tasks {
 		return false;
 	}
 
-	public static HashSet<Actor> getActorsWithoutMovie(DataBase dataBase) throws NullDatabaseExсeption {
+	public static HashSet<Actor> getActorsWithoutMovie(DataBase dataBase) throws NullDatabaseException {
 		if (dataBase == null) {
-			throw new NullDatabaseExсeption("DataBase must not be null");
+			throw new NullDatabaseException("DataBase must not be null");
 		}
 		HashSet<Actor> unemployed = new HashSet<>();
 
@@ -35,9 +35,9 @@ public class Tasks {
 		return unemployed;
 	}
 
-	public static HashMap<Integer, Actor> moviePartners(Actor actor) throws NullActorExсeption {
+	public static HashMap<Integer, Actor> moviePartners(Actor actor) throws NullActorException {
 		if (actor == null) {
-			throw new NullActorExсeption("Actor must not be null");
+			throw new NullActorException("Actor must not be null");
 		}
 		HashMap<Integer, Actor> partners = new HashMap<>();
 		for (Movie actorsMovie : actor.getMovies()) {
@@ -50,10 +50,10 @@ public class Tasks {
 		return partners;
 	}
 
-	public static HashSet<Movie> maxActorsMovie(DataBase dataBase) throws NullDatabaseExсeption {
+	public static HashSet<Movie> maxActorsMovie(DataBase dataBase) throws NullDatabaseException {
 		HashSet<Movie> movies = new HashSet<>();
 		if (dataBase == null) {
-			throw new NullDatabaseExсeption("DataBase must not be null");
+			throw new NullDatabaseException("DataBase must not be null");
 		}
 		int maxActors = 0;
 
